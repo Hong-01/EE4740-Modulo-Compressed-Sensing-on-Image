@@ -1,6 +1,7 @@
 # EE4740-Modulo-Compressed-Sensing-on-Image
 Lecture Project of EE4740 Data Compression: Entropy and Sparsity Perspectives
 
+Use Modulo compressed sensing algorithm (MILP) and OMP to recover the sparsity image
 
 Author: Yanqi Hong, Kaishen Lin
 
