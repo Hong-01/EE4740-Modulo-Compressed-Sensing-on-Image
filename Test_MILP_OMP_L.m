@@ -98,7 +98,7 @@ disp('Sparse values for each quantized image:');
 disp(sparse_values);
 
 s=mean(sparse_values)      %calculate the sparsity
-m = 250   % measurement number
+m = 260   % measurement number
 
 if m>=n
     disp("ERROR: NOT SPARSE ENOUGH, m >= n")
