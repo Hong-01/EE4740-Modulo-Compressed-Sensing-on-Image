@@ -111,9 +111,11 @@ x_rec_milp_list=[];
 x_rec_omp_list=[];
 
 for i = 1:length(quan_val_list)
+    variance = 1/m;
+    A =randn(m, n)*sqrt(variance);
     L = quan_val_list(i)
-    [x_rec_milp,time_milp]=MILP(m,n,quan_img_list{i});
-    [x_rec_omp,time_omp]=omp(m,n,quan_img_list{i},sparse_values(i));
+    [x_rec_milp,time_milp]=MILP(m,n,quan_img_list{i},A);
+    [x_rec_omp,time_omp]=omp(m,n,quan_img_list{i},sparse_values(i),A);
 
     time_milp_list=[time_milp_list,time_milp];
     time_omp_list=[time_omp_list,time_omp];

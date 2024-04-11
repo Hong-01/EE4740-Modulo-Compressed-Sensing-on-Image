@@ -1,11 +1,10 @@
-function [x_rec,time] = MILP(m,n,data)
+function [x_rec,time] = MILP(m,n,data,A)
 %m: measurement number
 %n: length of original vector
-        
+%A: measurement matrix        
 % 1. project the data on A to get y
         % define measurement matrix
-        variance = 1/m;
-        A =randn(m, n)*sqrt(variance);
+        
         A_norm = normalize(A,2,'norm',2);
         y = data*A_norm';
 % 2. get z, z is the fraction part of y

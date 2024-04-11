@@ -1,13 +1,11 @@
-function [x_hat,time]  = omp(m,n, data, K)
+function [x_hat,time]  = omp(m,n, data, K,A)
     % m: measurement number
     % n: length of original vector
     % K - Sparsity (i.e., the number of nonzero elements in the sparse solution)
+    % A: measurement matrix
 
 
 % 1. project the data on A to get y
-    %Define measurement matrix
-    variance = 1/m;
-    A =randn(m, n)*sqrt(variance);
     A_norm = normalize(A,2,'norm',2);
     y = (data*A_norm')';
 

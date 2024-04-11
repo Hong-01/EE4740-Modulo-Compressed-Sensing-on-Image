@@ -52,13 +52,15 @@ time_list=[];
 
 for j=1:length(m_list)
     m=m_list(j)
+    variance = 1/m;
+    A =randn(m, n)*sqrt(variance);
     mse_record=[];
     time_record=[];
     for i = 1:length(th_img_list)
         %MILP(m,n,th_img_list{0})
         s=sparse_values(i)
         input_data=double(th_img_list{i});
-        [x_rec,time]=MILP(m,n,input_data);
+        [x_rec,time]=MILP(m,n,input_data,A);
         mse_value=log10(sum((double(th_img_list{i})-x_rec).^2));
         mse_record=[mse_record,mse_value];
         time_record=[time_record,time];

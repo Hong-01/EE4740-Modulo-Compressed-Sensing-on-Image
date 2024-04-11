@@ -9,7 +9,7 @@ clc;
 
 data = readmatrix("E:\DATA\TUD\Master\TUD_Master_Y1\Q3\EE4740 Data Compression Entropy and Sparsity Perspectives\Final Project\Data\mnist_test.csv");
 data = data(1,2:end);
-
+nnz(data)
 n = length(data)
 img_size=sqrt(n);
 
@@ -41,10 +41,12 @@ x_rec_milp_list=[];
 x_rec_omp_list=[];
 
 for i = 1:length(m_list)
-
+   
     m=m_list(i)
-    [x_rec_milp,time_milp]=MILP(m,n,data_comp);
-    [x_rec_omp,time_omp]=omp(m,n,data_comp,s);
+    variance = 1/m;
+    A =randn(m, n)*sqrt(variance);
+    [x_rec_milp,time_milp]=MILP(m,n,data_comp,A);
+    [x_rec_omp,time_omp]=omp(m,n,data_comp,s,A);
 
     time_milp_list=[time_milp_list,time_milp];
     time_omp_list=[time_omp_list,time_omp];
