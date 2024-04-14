@@ -6,8 +6,15 @@ Use Modulo compressed sensing algorithm (MILP) and OMP to recover the sparsity i
 Author: Yanqi Hong, Kaishen Lin
 
 
-Explaination: 
+Explanation: 
 
-              Test_MILP_OMP_M.m, Test_MILP_M_S.m and Test_MILP_OMP_L.m are the code to run the experiment
+              Test_MILP_OMP_M.m, Test_MILP_M_S.m, and Test_MILP_OMP_L.m are the code to run the experiment
              
-              omp.m and MILP.m are the matlab function for OMP and MILP algorithm, respectively.
+              omp.m and MILP.m are the Matlab functions for OMP and MILP algorithms, respectively.
+
+
+Comment: If the Matlab reports: 
+            The index exceeds the number of array elements. The index cannot exceed 0.
+
+        Try to adjust the maximum solving time in MILP.m
+  
